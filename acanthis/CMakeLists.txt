@@ -103,15 +103,6 @@ target_compile_features(${projectName} PRIVATE cxx_std_17)
 
 find_package(OpenGL REQUIRED)
 
-set(modules_gui "" CACHE INTERNAL "modules_gui" FORCE)
-set(MODULES_GUI_ACANTHIS TRUE)
-set(MODULES_GUI FALSE)
-set(MODULES_CLI FALSE)
-set(MODULES_CLI_TEST FALSE)
-set(MODULES_CORE FALSE)
-set(MODULES_CORE_TEST FALSE)
-add_subdirectory(../modules modules)
-
 target_link_libraries(${projectName} salalib genlib Qt6::Core Qt6::Gui
     Qt6::Qml Qt6::Quick Qt6::OpenGL Qt6::Widgets
     OpenGL::GL OpenGL::GLU ${modules_gui} ${modules_core})
